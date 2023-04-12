@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from './components/Home'
+import FavoritePosts from './components/FavoritePosts'
+import TransitionsModal from './components/TransitionsModal'
+import PrimarySearchAppBar from './components/PrimarySearchAppBar'
+import Form from './components/Form'
+import GlobalContextProvider from './components/Context/GlobalContext';
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalContextProvider>
+      <Router>
+        <TransitionsModal />
+        <PrimarySearchAppBar />
+        <div className="app-body">
+          <Routes>
+            <Route path="/" element={<Home />}>
+            </Route>
+            <Route path="/favorite-post" element={<FavoritePosts />}>
+            </Route>
+            <Route path="/add-post" element={<Form />}>
+            </Route>
+          </Routes>
+        </div>
+      </Router>
+    </GlobalContextProvider>
   );
 }
 
