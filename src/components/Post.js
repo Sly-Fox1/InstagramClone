@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './Post.css'
 import Avatar from '@material-ui/core/Avatar'
-import { IconButton, makeStyles, Slider, withStyles, Tooltip, Button, Typography, TextField } from '@material-ui/core';
+import { IconButton, Button, TextField } from '@material-ui/core';
 
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -49,7 +49,7 @@ function Post({ post }) {
             </div>
 
             <div onClick={() => handleOpen(post)}>
-                <img className="post__image" src={post.imageUrl} />
+                <img className="post__image" alt="" src={post.imageUrl} />
             </div>
 
             <IconButton onClick={() => onLike(post)} arial-label="reqind" className='like-button'>

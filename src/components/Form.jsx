@@ -37,7 +37,7 @@ function Form() {
     return (
         <div className='column'>
             <div className="colum__item">
-                <img src="https://inbusiness.kz/uploads/66/images/IRrJWhxZ.jpg" />
+                <img alt="" src="https://inbusiness.kz/uploads/66/images/IRrJWhxZ.jpg" />
             </div>
             <div className="colum__item card">
                 <div className='success-post'>Пост успешно добавлен!</div>

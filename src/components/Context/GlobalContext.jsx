@@ -45,18 +45,23 @@ const GlobalContext = ({ children }) => {
     ]);
 
     const getPost = useCallback(async () => {
-        const post = JSON.parse(localStorage.getItem('posts') || [])
-        setPosts(post);
+        const posts = JSON.parse(localStorage.getItem('posts')) || [];
+        return posts;
     }, []);
 
     useEffect(() => {
+        const fetchData = async () => {
+            const post = await getPost();
+            setPosts(post);
+        };
+        fetchData();
+    }, [getPost]);
+
+
+    useEffect(() => {
+        localStorage.setItem('posts', JSON.stringify(posts));
         getPost();
-    }, []);
-
-
-    useEffect(() => {
-        localStorage.setItem('posts', JSON.stringify(posts))
-    }, [posts])
+    }, [posts, getPost])
 
 
 
