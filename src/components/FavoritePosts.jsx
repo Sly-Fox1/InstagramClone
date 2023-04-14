@@ -9,7 +9,7 @@ function FavoritePosts() {
   
     return (
         <div className="app2">  
-        <h1>Favorite post</h1>
+        <h1>Favorite posts</h1>
             {
                 posts.map((post, index )=> {
                     return post.like ? <Post post={post} key={index}/> : null

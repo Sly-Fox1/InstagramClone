@@ -1,5 +1,4 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';

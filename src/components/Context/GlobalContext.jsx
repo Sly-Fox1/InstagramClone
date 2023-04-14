@@ -45,29 +45,24 @@ const GlobalContext = ({ children }) => {
     ]);
 
     const getPost = useCallback(async () => {
-        const posts = JSON.parse(localStorage.getItem('posts')) || [];
-        return posts;
+        const post = JSON.parse(localStorage.getItem('posts') || [])
+        setPosts(post);
     }, []);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const post = await getPost();
-            setPosts(post);
-        };
-        fetchData();
-    }, [getPost]);
+        getPost();
+    }, []);
 
 
     useEffect(() => {
-        localStorage.setItem('posts', JSON.stringify(posts));
-        getPost();
-    }, [posts, getPost])
+        localStorage.setItem('posts', JSON.stringify(posts))
+    }, [posts])
 
 
 
     function createComment(selectedPost, text) {
 
-        const users = ['diana', 'lesha', 'karina', 'marta', 'igor', 'vanya'];
+        const users = ['diana', 'lesha', 'karina', 'marta', 'igor', 'vanya', 'vlad', 'kirill', 'nikita', 'milana'];
         const randomUser = users[Math.floor(Math.random() * users.length)];
 
 
